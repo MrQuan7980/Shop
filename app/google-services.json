@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "704334641006",
+    "project_id": "appchat-2ec30",
+    "storage_bucket": "appchat-2ec30.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704334641006:android:592d4132304cc695f6737f",
+        "android_client_info": {
+          "package_name": "com.example.baitapandroid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcx8oM_BVjFWKodWwEoua03qSKXm4kjRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704334641006:android:8ced72eb822b68fdf6737f",
+        "android_client_info": {
+          "package_name": "com.example.mysql"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcx8oM_BVjFWKodWwEoua03qSKXm4kjRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
