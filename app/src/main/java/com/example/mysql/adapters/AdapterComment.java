@@ -15,74 +15,87 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mysql.OOP.Product;
 import com.example.mysql.database.Constant;
+import com.example.mysql.databinding.ItemContainerAnswerBinding;
 import com.example.mysql.databinding.ItemContainerEvaluationBinding;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
-public class AdapterComment extends RecyclerView.Adapter<AdapterComment.Evaluatio>{
+public class AdapterComment extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     private final List<Product> products;
-    private final String currentUserId;
+    private final String senderId;
+    private static final int VIEW_SENT = 1;
+    private static final int VIEW_REP = 2;
 
-    public AdapterComment(List<Product> products, String currentUserId) {
+    public AdapterComment(List<Product> products, String senderId) {
         this.products = products;
-        this.currentUserId = currentUserId;
+        this.senderId = senderId;
     }
 
     @NonNull
     @Override
-    public Evaluatio onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemContainerEvaluationBinding binding = ItemContainerEvaluationBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-        return new Evaluatio(binding);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        if (viewType == VIEW_SENT)
+        {
+            ItemContainerEvaluationBinding binding = ItemContainerEvaluationBinding.inflate(
+                    LayoutInflater.from(parent.getContext()), parent, false);
+            return new SentComment(binding);
+        }
+        else if (viewType == VIEW_REP)
+        {
+            ItemContainerAnswerBinding binding = ItemContainerAnswerBinding.inflate(
+                    LayoutInflater.from(parent.getContext()), parent, false);
+            return new RepComment(binding);
+        }
+        else
+        {
+            return null;
+        }
     }
+
 
     @Override
-    public void onBindViewHolder(@NonNull Evaluatio holder, int position) {
-        holder.setData(products.get(position));
-
-        FirebaseFirestore database = FirebaseFirestore.getInstance();
-
-        Product productDle = products.get(position);
-
-        holder.binding.imageDelete.setVisibility(currentUserId.equals(productDle.userId) ? View.VISIBLE : View.GONE);
-
-        holder.binding.imageDelete.setOnClickListener(v -> {
-
-            if (currentUserId.equals(productDle.userId)) {
-                database.collection(Constant.KEY_COLLECTION_COMMENT)
-                        .document(productDle.commentId)
-                        .delete()
-                        .addOnSuccessListener(command -> {
-                            products.remove(position);
-                            notifyItemRemoved(position);
-
-                            notifyItemRangeChanged(position, products.size());
-
-                            Toast.makeText(holder.binding.getRoot().getContext(), "Xóa thành công", Toast.LENGTH_SHORT).show();
-                        })
-                        .addOnFailureListener(command -> {
-                            Toast.makeText(holder.binding.getRoot().getContext(), "Xóa thất bại", Toast.LENGTH_SHORT).show();
-                        });
-            }
-            else
-            {
-                Toast.makeText(holder.binding.getRoot().getContext(), "Bạn không thể xóa bình luận này", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (getItemViewType(position) == VIEW_SENT)
+        {
+            ((SentComment) holder).setData(products.get(position));
+        }
+        else if (getItemViewType(position) == VIEW_REP)
+        {
+            ((RepComment) holder).setData(products.get(position));
+        }
+        else
+        {
+            return;
+        }
     }
+
     @Override
     public int getItemCount()
     {
         return products.size();
     }
 
-    public class Evaluatio extends RecyclerView.ViewHolder {
+    @Override
+    public int getItemViewType(int position)
+    {
+        Product product = products.get(position);
+
+        if(product.comment != null && !product.comment.isEmpty())
+        {
+            return VIEW_SENT;
+        }
+        else
+        {
+            return VIEW_REP;
+        }
+
+    }
+    public class SentComment extends RecyclerView.ViewHolder {
         private final ItemContainerEvaluationBinding binding;
 
-        public Evaluatio(ItemContainerEvaluationBinding item) {
+        public SentComment(ItemContainerEvaluationBinding item) {
             super(item.getRoot());
 
             binding = item;
@@ -95,18 +108,33 @@ public class AdapterComment extends RecyclerView.Adapter<AdapterComment.Evaluati
             binding.ratingSao.setRating(Float.parseFloat(product.star));
             binding.textComment.setText(product.comment);
         }
-        private Bitmap getImage(String image)
-        {
-            if (image != null && !image.isEmpty())
-            {
-                byte[] decodedString = Base64.decode(image, Base64.DEFAULT);
-                return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-            }
-            else
-            {
-                return null;
-            }
-        }
+    }
 
+    public class RepComment extends RecyclerView.ViewHolder{
+        private final ItemContainerAnswerBinding binding;
+        public RepComment(ItemContainerAnswerBinding item)
+        {
+            super(item.getRoot());
+
+            binding = item;
+        }
+        void setData(Product product)
+        {
+            binding.textName.setText(product.nameUser);
+            binding.imageProfile.setImageBitmap(getImage(product.imageUser));
+            binding.textComment.setText(product.comment);
+        }
+    }
+    private Bitmap getImage(String image)
+    {
+        if (image != null && !image.isEmpty())
+        {
+            byte[] decodedString = Base64.decode(image, Base64.DEFAULT);
+            return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        }
+        else
+        {
+            return null;
+        }
     }
 }

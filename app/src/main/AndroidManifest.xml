@@ -16,6 +16,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activitys.Order_successful"
+            android:exported="false" />
+        <activity android:name=".frames.Home"
+            android:exported="true"/>
+        <activity android:name=".frames.Person"
+            android:exported="true"/>
+        <activity
             android:name=".shop.SentComment"
             android:exported="false" />
         <activity

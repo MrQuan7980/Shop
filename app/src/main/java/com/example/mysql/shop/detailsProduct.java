@@ -20,6 +20,7 @@ import com.example.mysql.adapters.AdapterProduct;
 import com.example.mysql.database.Constant;
 import com.example.mysql.database.Preference;
 import com.example.mysql.databinding.ActivityDetailsProductBinding;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -67,8 +68,6 @@ public class detailsProduct extends AppCompatActivity{
             onBackPressed();
         });
 
-
-
     }
     private void loading_information()
     {
@@ -98,7 +97,6 @@ public class detailsProduct extends AppCompatActivity{
             binding.textAddress.setText(product.cityShop);
 
             binding.sold.setText(String.valueOf(product.soldShop));
-
 
         }
     }
@@ -218,6 +216,8 @@ public class detailsProduct extends AppCompatActivity{
                                 }
 
                                 productList.add(productcomment);
+
+                                loadingRepShop(productcomment.commentId);
                             }
                         }
                     }
@@ -241,6 +241,34 @@ public class detailsProduct extends AppCompatActivity{
 
                     binding.sumBar.setText(String.format("%.1f", tong));
 
+                });
+    }
+
+    private void loadingRepShop(String commentId) {
+        String product_id = product.id;
+
+        database.collection(Constant.KEY_REP_COMMENT)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful() && task.getResult() != null) {
+                        for (DocumentSnapshot documentSnapshot : task.getResult()) {
+                            Product product_rep_comment = new Product();
+
+                            if (product_id.equals(documentSnapshot.getString(Constant.KEY_PRODUCT_ID))) {
+                                product_rep_comment.id = documentSnapshot.getString(Constant.KEY_PRODUCT_ID);
+                                product_rep_comment.shopId = documentSnapshot.getString(Constant.KEY_USER_SHOP_ID);
+                                product_rep_comment.id_rep_comment = documentSnapshot.getString(Constant.KEY_ID_COMMENT_SENT);
+                                product_rep_comment.commentId = documentSnapshot.getString(Constant.KEY_COMMENT_ID);
+                                product_rep_comment.nameUser = documentSnapshot.getString(Constant.KEY_FULL_NAME);
+                                product_rep_comment.imageUser = documentSnapshot.getString(Constant.KEY_USER_IMAGE);
+                                product_rep_comment.comment = documentSnapshot.getString(Constant.KEY_COMMENT);
+                                product_rep_comment.commentTime = documentSnapshot.getString(Constant.KEY_COMMENT_TIME);
+
+                                productList.add(product_rep_comment);
+                            }
+                        }
+                        adapterComment.notifyDataSetChanged();
+                    }
                 });
     }
     private void sentComment()

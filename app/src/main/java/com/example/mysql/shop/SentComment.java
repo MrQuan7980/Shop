@@ -77,6 +77,8 @@ public class SentComment extends AppCompatActivity {
         binding.textTitle.setText(title);
 
         binding.btnEvaluation.setOnClickListener(v -> repComment());
+
+        binding.back.setOnClickListener(v -> onBackPressed());
     }
     private void loaidngCommentShop()
     {
@@ -95,7 +97,6 @@ public class SentComment extends AppCompatActivity {
 
                             if (id.equals(documentSnapshot.getString(Constant.KEY_COMMENT_ID)))
                             {
-
                                 product.nameUser = documentSnapshot.getString(Constant.KEY_FULL_NAME);
                                 product.imageUser = documentSnapshot.getString(Constant.KEY_USER_IMAGE);
                                 product.comment = documentSnapshot.getString(Constant.KEY_COMMENT);
@@ -134,6 +135,7 @@ public class SentComment extends AppCompatActivity {
 
         sentcomment.put(Constant.KEY_ID_COMMENT_SENT, id_comment_sent);
         sentcomment.put(Constant.KEY_COMMENT_ID, id_comment);
+        sentcomment.put(Constant.KEY_PRODUCT_ID, id_product);
         sentcomment.put(Constant.KEY_USER_SHOP_ID, preference.getString(Constant.KEY_USER_SHOP_ID));
         sentcomment.put(Constant.KEY_FULL_NAME, preference.getString(Constant.KEY_FULL_NAME));
         sentcomment.put(Constant.KEY_USER_IMAGE, preference.getString(Constant.KEY_USER_IMAGE));

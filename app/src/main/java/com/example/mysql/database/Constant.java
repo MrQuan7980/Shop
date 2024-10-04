@@ -35,7 +35,8 @@ public class Constant {
     public static final String KEY_ID_COMMENT_SENT = "id_sent";
     public static final String KEY_COMMENT_TIME = "dataTime";
     public static final String KEY_STAR = "star";
-
     public static final String KEY_REP_COMMENT = "table_rep_comment";
-
+    public static final String KEY_ORDER_SUCCESSFUL = "table_order";
+    public static final String KEY_ORDER = "order";
+    public static final String KEY_PURCHASE_QUANTITY = "purchase_quantity";
 }

@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#ffffff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitys.Order_successful">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/controend"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/control2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <FrameLayout
+                        android:id="@+id/frame_back"
+                        android:layout_width="@dimen/_33sdp"
+                        android:layout_height="@dimen/_33sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:background="@drawable/background_back"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/back"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="@dimen/_2sdp"
+                            android:src="@drawable/arrow" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Order Successful"
+                        android:textSize="@dimen/_17sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/frame_heart"
+                        app:layout_constraintStart_toEndOf="@id/frame_back"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <FrameLayout
+                        android:id="@+id/frame_heart"
+                        android:layout_width="@dimen/_33sdp"
+                        android:layout_height="@dimen/_33sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:background="@drawable/background_back"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/home"
+                            android:layout_width="@dimen/_24sdp"
+                            android:layout_marginStart="1dp"
+                            android:layout_height="@dimen/_24sdp"
+                            android:layout_gravity="center"
+                            android:padding="@dimen/_5sdp"
+                            android:src="@drawable/home" />
+                    </FrameLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/controHang"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/order_back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/control2">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/imageProduct"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_97sdp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:riv_corner_radius="@dimen/_3sdp" />
+
+                    <TextView
+                        android:id="@+id/textTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="iPhone 14 pro max"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/imageProduct"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/do_la"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginBottom="@dimen/_30sdp"
+                        android:text="$"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/imageProduct"
+                        app:layout_constraintTop_toBottomOf="@id/textTitle" />
+
+                    <TextView
+                        android:id="@+id/money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginBottom="@dimen/_30sdp"
+                        android:text="50.00"
+                        android:textSize="@dimen/_14sdp"
+                        app:layout_constraintStart_toEndOf="@id/do_la"
+                        app:layout_constraintTop_toBottomOf="@id/textTitle" />
+
+
+                    <LinearLayout
+                        android:id="@+id/frame1"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_37sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:background="@drawable/muahang"
+                        android:padding="@dimen/_5sdp"
+                        android:weightSum="3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/tru"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/cong"
+                            android:drawableStart="@drawable/minus"
+                            android:drawablePadding="8dp"
+                            android:gravity="center"
+                            android:paddingStart="@dimen/_6sdp" />
+
+
+                        <TextView
+                            android:id="@+id/text_quantity"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/_1sdp"
+                            android:layout_marginEnd="@dimen/_1sdp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:hint="0"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/cong"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/cong"
+                            android:drawableStart="@drawable/round_add_24"
+                            android:paddingStart="@dimen/_9sdp" />
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/diachi"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_309sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/order_back"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/controHang"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="Order Information"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_17sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/titleName"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:background="@drawable/text"
+                        android:hint="Name"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/title" />
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_11sdp"
+                        android:layout_marginEnd="@dimen/_7sdp"
+                        android:maxWidth="@dimen/_250sdp"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/title" />
+
+                    <TextView
+                        android:id="@+id/titlePhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:background="@drawable/text"
+                        android:hint="Phone"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titleName" />
+
+                    <TextView
+                        android:id="@+id/phone"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_11sdp"
+                        android:layout_marginEnd="@dimen/_7sdp"
+                        android:maxWidth="@dimen/_200sdp"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titleName" />
+
+
+                    <TextView
+                        android:id="@+id/titleEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:background="@drawable/text"
+                        android:hint="Email"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titlePhone" />
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_11sdp"
+                        android:layout_marginEnd="@dimen/_7sdp"
+                        android:maxWidth="@dimen/_200sdp"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titlePhone" />
+
+                    <TextView
+                        android:id="@+id/titleDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:background="@drawable/text"
+                        android:hint="Date"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titleEmail" />
+
+                    <TextView
+                        android:id="@+id/date_product"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_11sdp"
+                        android:layout_marginEnd="@dimen/_7sdp"
+                        android:maxWidth="@dimen/_200sdp"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titleEmail" />
+
+                    <TextView
+                        android:id="@+id/titleHouseNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:background="@drawable/text"
+                        android:hint="House Number"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titleDate" />
+
+                    <TextView
+                        android:id="@+id/house_number"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_11sdp"
+                        android:layout_marginEnd="@dimen/_7sdp"
+                        android:maxWidth="@dimen/_200sdp"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titleDate" />
+
+                    <TextView
+                        android:id="@+id/titleDistrict"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:background="@drawable/text"
+                        android:hint="District"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titleHouseNumber" />
+
+                    <TextView
+                        android:id="@+id/district"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_11sdp"
+                        android:layout_marginEnd="@dimen/_7sdp"
+                        android:maxWidth="@dimen/_190sdp"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titleHouseNumber" />
+
+                    <TextView
+                        android:id="@+id/titleCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:background="@drawable/text"
+                        android:hint="City"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titleDistrict" />
+
+                    <TextView
+                        android:id="@+id/city"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_11sdp"
+                        android:layout_marginEnd="@dimen/_7sdp"
+                        android:maxWidth="@dimen/_200sdp"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/titleDistrict" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/controend"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

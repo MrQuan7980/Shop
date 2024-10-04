@@ -10,7 +10,7 @@ public class Product implements Serializable
     public double money;
 
     public int quantity;
-    public String shopId, shopImage, shopName, phoneShop, cityShop, soldShop;
+    public String shopId, shopImage, shopName, phoneShop, cityShop, soldShop, id_rep_comment;
     public String userId, productId, nameUser, imageUser,  comment, titleComment, commentTime, star, commentId;
 
 }
