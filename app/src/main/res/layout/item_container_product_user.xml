@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_4sdp"
+    android:layout_marginTop="@dimen/_1sdp"
+    android:layout_marginStart="@dimen/_1sdp"
+    android:background="@drawable/home_btn_nav"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/image_product"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/iphone"
+        app:riv_corner_radius="@dimen/_3sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="@dimen/_143sdp"
+        android:layout_height="@dimen/_180sdp"/>
+
+    <TextView
+        android:id="@+id/title_product"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:maxLines="1"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:textSize="@dimen/_11sdp"
+        android:text="IPhone 14 Pro Max"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/image_product"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="@dimen/_145sdp"
+        android:layout_height="0dp"/>
+
+    <TextView
+        android:id="@+id/money_product"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_product"
+        android:text="1000.0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/dol"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintEnd_toStartOf="@id/money_product"
+        app:layout_constraintTop_toBottomOf="@id/title_product"
+        android:text="$"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

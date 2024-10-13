@@ -1,0 +1,16 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <gradient android:startColor="@color/blue"
+                android:endColor="@color/new_color_one"
+                android:angle="90"
+                />
+        </shape>
+    </item>
+</layer-list>
+
+<!-- 0 bình thường - 90 từ trên xuống (phải -> trái) - 180 đảo ngược chiều - 270  90 từ trên xuống (trái -> phải)
+
+    Các item được thêm vào như là các lớp, lớp dưới cùng sẽ hiển thị sau cùng, lớp trên cùng hiển thị đầu tiên
+
+-->
